@@ -1,0 +1,3 @@
+tests/zip_05/f01.zip 00112
+tests/zip_05/f23.zip
+tests/zip_05/f09.zip 9209

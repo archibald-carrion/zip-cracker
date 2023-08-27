@@ -1,0 +1,5 @@
+abcdefghijklmnopqrstuvwxyz
+5
+ 
+tests/zip_05/f11.zip
+tests/zip_05/f12.zip

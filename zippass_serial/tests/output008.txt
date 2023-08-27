@@ -1,0 +1,4 @@
+tests/test00/test00.zip 00
+tests/test00/test01.zip 10
+tests/test00/test02.zip 22
+tests/test00/test03.zip ab2

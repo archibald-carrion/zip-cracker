@@ -1,0 +1,1 @@
+![UML graph for the zippass_serial project](https://git.ucr.ac.cr/ARCHIBALD.CARRION/concurrente_2023a_archibald_carrion/-/blob/main/tareas/zippass_serial/design/UML.png)
