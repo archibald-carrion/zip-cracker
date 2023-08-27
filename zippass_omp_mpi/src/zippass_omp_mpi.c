@@ -199,7 +199,7 @@ void dispatch_threads(shared_data_t* shared_data, uint64_t  paths_quantity) {
     // loop used to create the paths to the files
     for (uint64_t j = 0; j < usefull_threads; ++j) {
       uint64_t size_string = strlen(general_path) +
-        trlen(buffer_array_paths[j]) + 1;
+        strlen(buffer_array_paths[j]) + 1;
       array_paths[j] = malloc(size_string);
       memset(array_paths[j], '\0', size_string);
       strcpy(array_paths[j], general_path);  // NOLINT
