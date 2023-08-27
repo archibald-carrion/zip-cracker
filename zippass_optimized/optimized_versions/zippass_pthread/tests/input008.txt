@@ -1,0 +1,7 @@
+012345abc
+4
+
+tests/test00/test00.zip
+tests/test00/test01.zip
+tests/test00/test02.zip
+tests/test00/test03.zip

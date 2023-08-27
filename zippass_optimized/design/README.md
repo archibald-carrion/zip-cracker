@@ -1,0 +1,5 @@
+![simplified UML graph of the zippass_optimized project](UML_v2.svg)
+![UML graph for the zippass_pthread project when there is less or equal quantity of threads as paths](UML0.png)
+![UML graph for the zippass_pthread project when there is more threads than paths](UML1.png)
+![memory diagram of the zippass_pthread project](memory.png)
+![time execution graph](time_comparison_graphs.png)

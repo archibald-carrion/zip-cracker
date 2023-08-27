@@ -1,0 +1,3 @@
+![UML graph for the zippass_pthread project when there is less or equal quantity of threads as paths](https://git.ucr.ac.cr/ARCHIBALD.CARRION/concurrente_2023a_archibald_carrion/-/blob/main/tareas/zippass_pthread/design/UML0.png)
+![UML graph for the zippass_pthread project when there is more threads than paths](https://git.ucr.ac.cr/ARCHIBALD.CARRION/concurrente_2023a_archibald_carrion/-/blob/main/tareas/zippass_pthread/design/UML1.png)
+![memory diagram of the zippass_pthread project](https://git.ucr.ac.cr/ARCHIBALD.CARRION/concurrente_2023a_archibald_carrion/-/blob/main/tareas/zippass_pthread/design/memory.png)

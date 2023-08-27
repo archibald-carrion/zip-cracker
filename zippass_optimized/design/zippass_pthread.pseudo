@@ -1,0 +1,50 @@
+procedure main() {
+  read alphabet
+  read max_lenght
+
+  zip_files_array // dinamic array that contains all the path 
+
+  // for every zip_file_path given by the user, add zip_file_path to the zip_files_array
+  while (read zip_file_path) {
+    zip_files_array += zip_file_path        
+  }
+
+  quantity_zip_files = zip_files_array.lenght()
+
+  thread_quantity = default_system_quantity
+  if(exist_thread_quantity_parameter) {
+    read thread_quantity
+  }
+
+  // find the password of each zip file, a mapping algorithm by blocks
+  // is used to optimaly shared the task between threads.
+  block_size = quantity_zip_files / thread_quantity
+  // the quantity of path fore each thread
+  rest_excess = block_size*thread_quantity
+
+  queue
+  for each path in zip_files_array {
+    consume(queue)  // all the given thread start consuming the queue
+    produce(queue)  // main thread start producing the queue
+  }
+
+  wait for all the threads to finish
+  print(passwords in each private_data)
+}
+
+
+procedure consume() {
+  while (queue is not empty) {
+    password = queue.pop()
+    if (checkpassword(password)) {
+      return password
+    }
+  }
+  return null
+}
+
+procedure produce() {
+  for each conbination in alphabet until max_lenght {
+    queue.push(conbination)
+  }
+}
