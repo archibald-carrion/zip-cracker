@@ -1,2 +1,2 @@
-include ../../common/Makefile
+include ../common/Makefile
 LIBS=-lzip
