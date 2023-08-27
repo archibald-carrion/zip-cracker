@@ -1,0 +1,2 @@
+tests/zip_05/f13.zip rchf
+tests/zip_05/f14.zip lwxn

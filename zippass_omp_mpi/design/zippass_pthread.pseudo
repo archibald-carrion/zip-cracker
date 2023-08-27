@@ -1,0 +1,139 @@
+procedure main() {
+  read alphabet
+  read max_lenght
+
+  zip_files_array // dinamic array that contains all the path 
+
+  // for every zip_file_path given by the user, add zip_file_path to the zip_files_array
+  while (read zip_file_path) {
+    zip_files_array += zip_file_path        
+  }
+
+  quantity_zip_files = zip_files_array.lenght()
+
+  thread_quantity = default_system_quantity
+  if(exist_thread_quantity_parameter) {
+    read thread_quantity
+  }
+
+  // find the password of each zip file, a mapping algorithm by blocks
+  // is used to optimaly shared the task between threads.
+  block_size = quantity_zip_files / thread_quantity
+  // the quantity of path fore each thread
+  rest_excess = block_size*thread_quantity
+  // addional quantity of path, this variable will be decreased
+  // for each execution of the loop, the rest_excess (n) first threads
+  // will execute 1 addional task
+
+  i = 0 // thread_counter
+  j = 0 // quantity_zip_counter
+  while(i!=thread_quantity && j!=quantity_zip_files) {
+    if(rest_excess == 0){
+      paths = zip_files_array[block_size*(thread_quantity-i),
+        block_size*(thread_quantity-i) + block_size]
+      create_thread(find_passwords, paths)
+      // the starting routine and the paths to the
+      // zip files that must be studied
+      j = j - block_size
+    }else{
+      // case where there is more threads than zipfiles
+      if(block_size == 0){
+        paths = zip_files_array[(thread_quantity-i),
+         (thread_quantity-i) + 1]
+        create_thread(find_passwords, paths)
+        --j
+      }else{
+        // case where there is more zip_files than threads
+        paths = zip_files_array[block_size*(thread_quantity-i) + (thread_quantity-i),
+          block_size*(thread_quantity-i) + block_size + 1]
+        create_thread(find_passwords, paths, alphabet, max_lenght)
+        j = j - block_size - 1
+      }
+    }
+  }
+
+  wait for all the threads to finish
+  print(passwords in each private_data)
+}
+
+// the function  does not return anything, every answer is stored
+// in a buffer in private_data
+procedure find_passwords(paths, alphabet, max_lenght) {
+  // the loop increment a variable i that start at 0
+  if only one path in paths {
+	for each thread disponible {
+		private_data.password[i] = find_password_combination_lenghtN(path, alphabet, lenght_I)
+	}
+  } else {
+	for each path in paths {
+		private_data.password[i] = find_password(path, alphabet, max_lenght)
+	}
+  }
+}
+
+procedure generate_combinations_rec(current_combination, currentIndex, zip_file_path){
+    if currentIndex = size_combination {
+        if zip.try_password(current_combination) == success {
+			// tell the other thread to stop searching
+            is_password_found = 1
+            return current_combination
+		}
+	}
+    
+    i = 0    
+    while i < alphabet_length and is_password_found == 0 {
+        current_combination[currentIndex] = alphabet[i]
+        generate_combinations_rec(current_combination, currentIndex + 1, zip_file_path)
+        i = i + 1
+	}
+}
+
+
+procedure find_password_combination_lenghtN(path, alphabet, lenght_I) {
+	generate_combinations_rec(password, 0, zip_file_path)
+}
+
+// find_password is inspired by the lexicographic order algorithm for combinations
+procedure find_password(zip_files, alphabet, max_lenght) {
+  bool password_found = false
+  string word // empty string
+  n = alphabet.size()
+
+  for i = 1; i <= max_lenght; ++i {
+    word = ""  // empty the word string
+    // first, we fill the i first characters of the words with
+    // the first character of the alphabet
+    for j =0; j < i; ++j {
+      word[j] = alphabet[0]
+    }
+
+    // then we create every single combination posible for a word of i characters
+    while word != "" {
+      if zip.try_password(word) == success {
+        return word
+      }
+      k = i - 1
+      while (k>=0 word[k] == alphabet[n-1]) {
+        k--
+      }
+
+      if k < 0 {
+        break
+      }
+
+      for j = 0; j<nl ++j {
+        if alphabet[j] > word[k] {
+          word[k] = alphabet[j]
+          break
+        }
+      }
+
+      for j = k + 1; j < i; ++j {
+        word[j] = alphabet[0]
+      }
+    }
+  }
+  return "" 
+  // in this case, every single combination were tried,
+  // and none worked,therefore we return an empty array
+}
