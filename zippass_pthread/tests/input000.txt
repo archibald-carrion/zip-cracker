@@ -1,0 +1,6 @@
+0123456789
+5
+ 
+tests/zip_05/f01.zip
+tests/zip_05/f23.zip
+tests/zip_05/f09.zip

@@ -1,0 +1,4 @@
+tests/zip_05/f06.zip 84520
+tests/zip_05/f07.zip 77777
+tests/zip_05/f10.zip 781
+tests/zip_05/f11.zip
